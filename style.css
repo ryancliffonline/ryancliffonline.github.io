@@ -1,3 +1,57 @@
-p {
-	color: #0000ff;
+body {
+  font-weight:700;
+  color: red;
+  font-family: 'Arial', sans-serif;
+}
+
+h3 {
+  font-weight:400;
+  color: black;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  line-height: 1;
+  Font-size: 1rem;
+}
+h1 {
+  line-height:1rem;
+  font-size: 2rem;
+  color: white;
+  font-family: TIMES;
+  font-weight:600;
+  font-style: normal;
+  letter-spacing:5px;
+  text-align: left;
+  
+}
+
+body {
+  background-image: url('images/guit.jpg');
+  background-color: orange;
+  background-position: top;
+  /* Always provide a background color in case the image fails to load */
+  background-attachment: scroll;
+  background-size: 50vh;
+}
+
+html {
+scroll-behaivor: smooth;
+}
+/* This code only runs on screens that are 768px wide or smaller */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  /* Force multi-column layouts into a single, vertical column */
+  .container, .sidebar, .main-content {
+    width: 100% ;
+    float: none ;
+    box-sizing: border-box;
+  }
+}
+
+::-webkit-scrollbar {
+  
+  display:none;
+  
 }
