@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/png" href="me2.png">
+  <meta charset="utf-8">
+  <title>Chi/Wisco</title>
+  <style>
+    /* 1. Base Setup */
+    body {
+      background-color: #326; /* Dark background makes photos pop */
+      color: #fff;
+      font-family: sans-serif;
+      padding: 0px;
+    }
+
+    /* 2. The Grid System */
+    .neocities-grid {
+      display: grid;
+      /* Automatically fits as many 180px columns as your screen allows */
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 5px; /* Space between photos */
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* 3. The Photo Styling */
+    .grid-card img {
+      width: 100%;
+      height: auto; 
+      object-fit: cover; /* Crops rather than stretching your photos */
+      border-radius: 0px;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    /* Hover effect */
+    .grid-card img:hover {
+      transform: scale(1.02);
+      outline: 2px solid #ff00ff; /* Neon border on hover */
+    }
+    
+     /* 4. Full-Screen Lightbox Overlay */
+    .lightbox-overlay {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 9999; /* Sits on top of absolutely everything */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(51, 34, 102, 1.0); /* Dark semi-transparent background */
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out; /* UI cue showing users they can click anywhere to close */
+    }
+
+    /* The expanded image inside the lightbox */
+    .lightbox-overlay img {
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain; /* Preserves ratio perfectly on full-screen */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Chicago / Wisconsin - May 2026 </h1>
+  <!-- The grid container where JS will dump the images -->
+  <div class="neocities-grid" id="neocities-gallery"></div>
+  
+    <!-- The full-screen lightbox structure -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded view">
+  </div>
+
+  <script>
+    const maxPhotos = 70; 
+    const folderPath = "wiscopics"; // MUST match your Neocities folder name exactly
+    const gridContainer = document.getElementById('neocities-gallery');
+     const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    for (let i = 1; i <= maxPhotos; i++) {
+      const card = document.createElement('div');
+      card.classList.add('grid-card');
+
+      const photo = document.createElement('img');
+      // This pulls directly from your Neocities subfolder
+      photo.src = `${folderPath}/img-${i}.JPG`; 
+      photo.alt = `Gallery image ${i}`;
+      photo.loading = "lazy"; // Keeps your Neocities site fast
+    
+     // 2. Add click event to each photo to open full-screen
+      photo.onclick = function() {
+        openLightbox(this.src, this.alt);
+      };
+
+      card.appendChild(photo);
+      gridContainer.appendChild(card);
+    }
+
+    // 3. Lightbox Functions
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.style.display = 'flex'; // Shows the hidden overlay using flexbox alignment
+      document.body.style.overflow = 'hidden'; /* Disables page scrolling while viewing */
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none'; // Hides the overlay
+      document.body.style.overflow = 'auto'; /* Restores background page scrolling */
+    }
+  </script>
+ <h2><a style="color: white; text-align: center;" href="index.html">go back home</a></h2>
+</body>
+</html>
+
