@@ -77,6 +77,24 @@
   </div>
 
   <script>
+    const captions = [
+  " ",
+  " ",
+  " ",
+  " I love these coastal houses",
+   " Mom and Granny at the front ",
+  " ",
+  " ",
+  " ",
+   " ",
+  " ",
+  " Baby humpback whale chilling be the boat ",
+  " wow I thought i got more whale pics...",
+   " ",
+  " ",
+  " ",
+  " ",
+];
     const maxPhotos = 16; 
     const folderPath = "whales"; // MUST match your Neocities folder name exactly
     const gridContainer = document.getElementById('neocities-gallery');
@@ -96,11 +114,21 @@
      // 2. Add click event to each photo to open full-screen
       photo.onclick = function() {
         openLightbox(this.src, this.alt);
-      };
+};
+// --- NEW: This adds the text right beneath the image ---
+   const text = document.createElement('p');
+   text.classList.add('card-text');
+   text.textContent = captions[i - 1] || `Image ${i}`; // Change this to whatever text you want
 
-      card.appendChild(photo);
-      gridContainer.appendChild(card);
-    }
+   // Put both elements inside the card block
+   card.appendChild(photo);
+   card.appendChild(text);
+   
+   // Send the completed card to your main gallery grid
+   gridContainer.appendChild(card);
+ }
+
+    
 
     // 3. Lightbox Functions
     function openLightbox(src, alt) {

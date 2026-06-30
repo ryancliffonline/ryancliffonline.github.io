@@ -64,34 +64,40 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       }
 
+      image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
     </style>
   </head>
 
   <body>
-    <div style="flex-wrap: wrap;">
+    <div class=image-container style="display:flex; gap:10%; justify-content: left; flex-wrap: nowrap;">
     <h1><a style="font-size:14rem; color:white;">Photos</a></h1>
-       <div>
-       <img src="camera.jpg">
+    <div>
+       <img src="images/camera.png" style="width:250px; height:275px;">
        <h2> This is the camera I use </h2>
-      </div>
+     </div>
   </div>
-    <h2 style="text-decoration: none;"> These are photo albums if you click on it :D </h2>
     <!-- FIXED: Every image now has its own separate grid-card wrapper -->
     <div class="grid">
       <div class="grid-card">
-         <a href="ChiWisco.html"><img src="wiscopics/img-9.jpeg"></a>
+         <a href="ChiWisco.html"><img src="images/chicago.png"></a>
         <h2 style="text-decoration: none;"> Chicago / Wisconsin </h2>
       </div>
       <div class="grid-card">
-        <a href="whales.html"><img src="whales/img-11.jpeg"></a>
+        <a href="whales.html"><img src="images/whale.png"></a>
         <h2 style="text-decoration: none;"> Whales </h2>
       </div>
       <div class="grid-card">
-        <a href="Fenwayjune.html"><img src="fenwayjune/img-2.jpeg"></a>
+        <a href="Fenwayjune.html"><img src="images/fenway.png"></a>
         <h2 style="text-decoration: none;"> Fenway </h2>
       </div>
       <div class="grid-card">
-        <a href="wollastonbeach.html"><img src="wollaston/img-5.jpeg"></a>
+        <a href="wollastonbeach.html"><img src="images/wollaston.png"></a>
         <h2 style="text-decoration: none;"> Wollaston Beach </h2>
       </div>
     </div>
