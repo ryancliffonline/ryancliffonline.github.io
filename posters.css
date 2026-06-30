@@ -24,7 +24,7 @@ h1 {
 }
 
 body {
-  background-image: url('clouds.JPG');
+  background-image: url('images/clouds.JPG');
   background-color: silver;
   background-position: top;
   /* Always provide a background color in case the image fails to load */

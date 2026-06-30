@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="images/me2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.5">
+    <title>Photos</title>
+    <link rel="stylesheet" href="photos.css" >
+
+    <style>
+      body {
+        background-color: #326; /* Dark background makes photos pop */
+        color: #fff;
+        font-family: sans-serif;
+        padding: 0px;
+      }
+
+      .grid {
+        display: grid; 
+        /* Fills horizontally first, wrapping to a new row automatically */
+        grid-auto-flow: row; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px; 
+        max-width: 1800px;
+        margin: 0 auto;
+        padding-bottom: 10px;
+      }
+
+      /* 3. The Photo Styling */
+      .grid-card img {
+        width: 100%;
+        height: auto; 
+        object-fit: cover; /* Crops rather than stretching your photos */
+        border-radius: 0px;
+        display: block;
+        transition: transform 0.2s ease;
+      }
+
+      /* Hover effect */
+      .grid-card img:hover {
+        transform: scale(1.02);
+        outline: 2px solid #f0f0ff; /* Neon border on hover */
+      }
+      
+      /* 4. Full-Screen Lightbox Overlay */
+      .lightbox-overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 9999; /* Sits on top of absolutely everything */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(51, 34, 102, 1.0); /* Dark semi-transparent background */
+        justify-content: center;
+        align-items: center;
+        cursor: zoom-out; /* UI cue showing users they can click anywhere to close */
+      }
+
+      /* The expanded image inside the lightbox */
+      .lightbox-overlay img {
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain; /* Preserves ratio perfectly on full-screen */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1><a style="font-size:14rem; color:white;">Photos</a></h1>
+    <!-- FIXED: Every image now has its own separate grid-card wrapper -->
+    <div class="grid">
+      <div class="grid-card">
+         <a href="chiwisco.html"><img src="wiscopics/img-9.jpg"></a>
+        <h2 style="text-decoration: none;"> Chicago / Wisconsin </h2>
+      </div>
+      <div class="grid-card">
+        <a href="whales.html"><img src="whales/img-11.jpg"></a>
+        <h2 style="text-decoration: none;"> Whales </h2>
+      </div>
+      <div class="grid-card">
+        <a href="Fenwayjune.html"><img src="fenwayjune/img-2.jpg"></a>
+        <h2 style="text-decoration: none;"> Fenway </h2>
+      </div>
+      <div class="grid-card">
+        <a href="wollastonbeach.html"><img src="wollaston/img-5.jpg"></a>
+        <h2 style="text-decoration: none;"> Wollaston Beach </h2>
+      </div>
+    </div>
+  </body>
+  <h2><a style="color: white; text-align: center;" href="index.html">go back home</a></h2>
+</html>
+

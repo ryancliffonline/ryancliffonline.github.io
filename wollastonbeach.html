@@ -4,7 +4,7 @@
 <head>
   <link rel="icon" type="image/png" href="images/me2.png">
   <meta charset="utf-8">
-  <title>Chi/Wisco</title>
+  <title>Wollaston Beach</title>
   <style>
     /* 1. Base Setup */
     body {
@@ -66,7 +66,7 @@
   </style>
 </head>
 <body>
-  <h1>Chicago / Wisconsin - May 2026 </h1>
+  <h1>Wollaston Beach - June 21 2026</h1>
   <!-- The grid container where JS will dump the images -->
   <div class="neocities-grid" id="neocities-gallery"></div>
   
@@ -76,8 +76,8 @@
   </div>
 
   <script>
-    const maxPhotos = 70; 
-    const folderPath = "wiscopics"; // MUST match your Neocities folder name exactly
+    const maxPhotos = 11; 
+    const folderPath = "wollaston"; // MUST match your Neocities folder name exactly
     const gridContainer = document.getElementById('neocities-gallery');
      const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -88,8 +88,8 @@
 
       const photo = document.createElement('img');
       // This pulls directly from your Neocities subfolder
-      photo.src = `${folderPath}/img-${i}.JPG`; 
-      photo.alt = `Gallery image ${i}`;
+      photo.src = `${folderPath}/img-${(i)}.JPG`; 
+      photo.alt = `Gallery image ${(i)}`;
       photo.loading = "lazy"; // Keeps your Neocities site fast
     
      // 2. Add click event to each photo to open full-screen
@@ -114,7 +114,7 @@
       document.body.style.overflow = 'auto'; /* Restores background page scrolling */
     }
   </script>
- <h2><a style="color: white; text-align: center;" href="photos.html">go back</a></h2>
+ <h2><a style="color: white; text-align: left;" href="photos.html">go back</a></h2>
 </body>
 </html>
 

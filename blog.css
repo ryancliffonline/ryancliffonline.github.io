@@ -2,7 +2,7 @@ body {
   font-weight:700;
   color: red;
   font-family: 'Arial', sans-serif;
-  margin-right: 30rem;
+  margin-right: 25vw;
 }
 
 h3 {
@@ -33,4 +33,11 @@ body {
   /* Always provide a background color in case the image fails to load */
   background-attachment: scroll;
   background-size: 50%;
+}
+
+image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
