@@ -1,0 +1,51 @@
+body {
+        font-weight: 700;
+        color: orange;
+        font-family: 'Arial', sans-serif;
+        background-color: black;
+        background-position: top;
+        background-attachment: scroll;
+        background-size: 50%;
+        background-repeat: repeat;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: 5px;
+        text-align: left;
+      }
+
+      /* Horizontal Scroll Engine - Flexbox Fallback Rules */
+      .container {
+        width: 100%;
+        overflow-x: auto !important;          /* Forces horizontal scroll */
+        overflow-y: hidden !important;        /* Blocks vertical scroll leakage */
+        display: block !important;
+        -webkit-overflow-scrolling: touch;   /* Smooth scrolling for iPhones */
+      }
+
+      .container .wrapper {
+        display: flex !important;             /* Forces layout line-up */
+        flex-direction: row !important;       /* Strict horizontal direction */
+        flex-wrap: nowrap !important;         /* Strict rule: NO wrapping allowed */
+        width: max-content !important;        /* Allows the row to grow wider than screen */
+        gap: 1rem;
+      }
+
+      .container .wrapper img {
+        height: 30rem !important;             /* Consistent height for row alignment */
+        width: auto !important;               /* Keeps images from distorting */
+        flex-shrink: 0 !important;            /* Strict rule: Mobile CANNOT squish images */
+        object-fit: cover;
+      }
+
+      /* Hide Scrollbars */
+      .container::-webkit-scrollbar {
+        display: none !important;
+      }

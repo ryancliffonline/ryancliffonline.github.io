@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="me2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posters and Graphics</title>
+    <link href="posters.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body style="padding:2rem;">
+  
+ <h1><a style= "font-size:14rem; color:silver;"> Posters</a></h1>
+ <style>
+
+   /* 2. The Grid System */
+    .neocities-grid {
+      display: grid;
+      /* Automatically fits as many 180px columns as your screen allows */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem; /* Space between photos */
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* 3. The Photo Styling */
+    .grid-card img {
+      width: 100%;
+      height: auto; 
+      object-fit: cover; /* Crops rather than stretching your photos */
+      border-radius: 0px;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    /* Hover effect */
+    .grid-card img:hover {
+      transform: scale(1.02);
+      outline: 2px solid #00f0ff; /* Neon border on hover */
+    }
+    
+     /* 4. Full-Screen Lightbox Overlay */
+    .lightbox-overlay {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 9999; /* Sits on top of absolutely everything */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 4.0); /* Dark semi-transparent background */
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out; /* UI cue showing users they can click anywhere to close */
+    }
+
+/* The expanded image inside the lightbox */
+.lightbox-overlay img {
+  max-width: 90vw;       /* Max width is 90% of the screen width */
+  max-height: 85vh;      /* Max height is 85% of the screen height */
+  width: auto;           /* Keeps width proportional */
+  height: auto;          /* Keeps height proportional */
+  object-fit: contain;   /* Scaled down to fit without cropping */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+    
+  </style>
+<body>
+  <!-- The grid container where JS will dump the images -->
+  <div class="neocities-grid" id="neocities-gallery"></div>
+  
+    <!-- The full-screen lightbox structure -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded view">
+  </div>
+
+  <script>
+  // 1. Define your exact single images and their file extensions
+  const galleryItems = [
+    { src: "posters/GINGHAM ISH.png", caption: "" },
+    { src: "posters/20 cats tour-03.jpg", caption: "" },
+    { src: "posters/3.10 BUG BOX-02.jpg", caption: "" },
+    { src: "posters/4.20 BOXING-02.png", caption: "" },
+    { src: "posters/5.27 SIL.png", caption: "" },
+    { src: "posters/6.2 20cats-01.png", caption: "" },
+    { src: "posters/ATHEN SBBB.png", caption: "" },
+    { src: "posters/auburn 2.png", caption: "" },
+    { src: "posters/CAMBERVILLE 5.26_2.png", caption: "" },
+    { src: "posters/CAMBERVILLE 6.13.png", caption: "" },
+    { src: "posters/CAMBERVILLE GENERAL_TWO-01.png", caption: "" },
+    { src: "posters/cats 4 21 newwww.png", caption: "" },
+    { src: "posters/FUSSER_112825.jpg", caption: "" },
+    { src: "posters/HAMMERS 4.10.png", caption: "" }, 
+    { src: "posters/LOCHH 3.png", caption: "" }, 
+    { src: "posters/low qual-01.jpg", caption: "" }, 
+    { src: "posters/may 1.png", caption: "" }, 
+    { src: "posters/NEW SRIAL BABY SPRING TOUR.png", caption: "" }, 
+    { src: "posters/printing cliff-02-01.jpg", caption: "" }, 
+    { src: "posters/printing cliff-02-02-02.jpg", caption: "" }, 
+    { src: "posters/Screenshot 2026-06-26 181047.png", caption: "" }, 
+    { src: "posters/to post cats_4.png", caption: "" }, 
+    { src: "posters/Screenshot 2026-06-26 183311.png", caption: "" }, 
+    { src: "posters/Screenshot 2026-06-26 183134.png", caption: "" }, 
+    { src: "posters/Screenshot 2026-06-26 183109.png", caption: "" }, 
+    { src: "posters/Screenshot 2026-06-26 183058.png", caption: "" }, 
+    // Add your remaining images following this exact format:
+    // { src: "folder/filename.ext", caption: "Your text here" }
+  ];
+
+  const gridContainer = document.getElementById('neocities-gallery');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // 2. Loop through your manual list instead of generating numbers
+  galleryItems.forEach((item) => {
+    const card = document.createElement('div');
+    card.classList.add('grid-card');
+
+    const photo = document.createElement('img');
+    photo.src = `${item.src}`; // Pulls your direct path
+    photo.alt = item.caption;
+    photo.loading = "lazy"; 
+
+    // Open full-screen on click
+    photo.onclick = function() {
+      openLightbox(this.src, this.alt);
+    };
+
+    // Adds the caption text beneath the image
+    const text = document.createElement('p');
+    text.classList.add('card-text');
+    text.textContent = item.caption; 
+
+    // Append items to card
+    card.appendChild(photo);
+    card.appendChild(text);
+    
+    // Send to main grid
+    gridContainer.appendChild(card);
+  });
+
+  // 3. Lightbox Functions
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.style.display = 'flex'; 
+    document.body.style.overflow = 'hidden'; 
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none'; 
+    document.body.style.overflow = 'auto'; 
+  }
+</script>
+
+<br><br><br>
+  <a style="font-size:2rem; color:white; background-color: rgba(255, 255, 255, 0.5);" href="https://www.instagram.com/mt.mag2/">hmu on instagram of u want a poster or anything</a><br>
+<h2><a style="font-size:2rem; color: white; text-align: center;" href="index.html">go back home</a></h2>
+ <br>
+  </body>
+</html>
