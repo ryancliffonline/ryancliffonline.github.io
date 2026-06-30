@@ -25,7 +25,7 @@ h1 {
 }
 
 body {
-  background-image: url('fish.png');
+  background-image: url('images/fish.png');
   background-color: blue;
   background-position: top;
   /* Always provide a background color in case the image fails to load */
