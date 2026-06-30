@@ -1,0 +1,35 @@
+body {
+  font-weight:700;
+  color: red;
+  font-family: 'Arial', sans-serif;
+}
+
+h3 {
+  font-weight:100;
+  color: red;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  line-height: 1;
+  Font-size: 30px;
+}
+h1 {
+  line-height:50px;
+  font-size: 30px;
+  color: red;
+  font-family: 'Times';
+  font-weight:600;
+  font-style: normal;
+  letter-spacing:10px;
+  text-align: center;
+  
+}
+
+body {
+  background-image: url('');
+  background-color: rgba(26, 0, 266, 0.4); /* 60% white overlay */
+  background-blend-mode: lighten;
+  background-position: top;
+  /* Always provide a background color in case the image fails to load */
+  background-attachment: scroll;
+  background-size: 50%;
+}
