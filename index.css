@@ -29,9 +29,13 @@ body {
   background-color: orange;
   background-position: top;
   /* Always provide a background color in case the image fails to load */
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: 50vh;
 }
+
+img {
+align-conent: right;
+  }
 
 html {
 scroll-behaivor: smooth;
@@ -52,6 +56,6 @@ scroll-behaivor: smooth;
 
 ::-webkit-scrollbar {
   
-  display:none;
+  display:none ;
   
 }

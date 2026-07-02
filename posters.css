@@ -28,6 +28,12 @@ body {
   background-color: silver;
   background-position: top;
   /* Always provide a background color in case the image fails to load */
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: 100%;
+}
+
+::-webkit-scrollbar {
+  
+  display:none ;
+  
 }
