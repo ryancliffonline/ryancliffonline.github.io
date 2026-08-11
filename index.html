@@ -21,4 +21,32 @@
   <h1> <a style=" color: white; background-color: rgba(106, 180, 40, 0.7);" href="posters.html">Posters</a> </h1><br>
   <h1> <a style=" color: white; background-color: rgba(69, 90, 90, 0.7);" href="photos.html">Photos</a> </h1><br>
   <h1> <a style="color: white; background-color: rgba(225, 03, 06, 0.7);" href="videos.html">Videos</a> </h1><br>
-  <h1> <a style=" color: white; background-color: rgba(6, 67, 7, 0.7);" href="about.html">About</a> </h1><br> 
+  <h1> <a style=" color: white; background-color: rgba(6, 67, 7, 0.7);" href="about.html">About</a> </h1><br> <h1>
+  <a style=" color: white; background-color: rgba(80, 26, 4, 0.7);" href="recs.html">Recs</a> </h1><br>
+
+  <script>
+        // 1. Array containing the file paths or URLs of your background images
+        const images = [
+            'images/guit.jpg',
+            'images/bunny.jpg',
+            'images/me2.png',
+            'images/haverhill.png'
+        ];
+
+        let currentIndex = 0;
+
+        // 2. Function to update the body background image
+        function changeBackground() {
+            // Apply the current image from the array to the CSS background-image property
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+            
+            // Advance to the next image index, looping back to 0 at the end of the array
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // 3. Initialize the first image immediately on page load
+        changeBackground();
+
+        // 4. Trigger changeBackground automatically every 5000 milliseconds (5 seconds)
+        setInterval(changeBackground, 3000);
+    </script>
