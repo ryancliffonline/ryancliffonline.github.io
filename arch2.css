@@ -36,10 +36,11 @@ body {
         flex-wrap: nowrap !important;         /* Strict rule: NO wrapping allowed */
         width: max-content !important;        /* Allows the row to grow wider than screen */
         gap: 1rem;
+        margin-bottom:1rem;
       }
 
       .container .wrapper img {
-        height: 30rem !important;             /* Consistent height for row alignment */
+        height: 23rem !important;             /* Consistent height for row alignment */
         width: auto !important;               /* Keeps images from distorting */
         flex-shrink: 0 !important;            /* Strict rule: Mobile CANNOT squish images */
         object-fit: cover;
@@ -47,5 +48,6 @@ body {
 
       /* Hide Scrollbars */
       .container::-webkit-scrollbar {
-        display: none !important;
+        display: auto;
+        scrollbar-color: orange; !important;
       }

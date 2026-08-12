@@ -31,7 +31,15 @@ body {
   /* Always provide a background color in case the image fails to load */
   background-attachment: fixed;
   background-size: 50vh;
+  margin: 0;
+  height: 100vh;
 }
+
+.bottom-center-text {
+        position: absolute;
+        top: 20px;       /* Distance from the bottom edge */
+        left: 50%;          /* Moves left edge to the middle of the screen */
+        transform: translateX(-50%); /* Shifts element back by half its own width */
 
 img {
 align-conent: right;
