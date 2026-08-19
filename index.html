@@ -30,10 +30,11 @@
         'images/guit.jpg',
         'images/bunny.JPG',
         'images/haverhill.png',
+        'images/pilotlight.png',
         'images/machine.JPG',
         'images/collective.png',
-        'stsimons/img- (139).JPG',
-        'montreal/img- (72).JPG',
+        'georgia/img- (93).JPG',
+        'montreal/img- (33).JPG',
     ];
 
     let currentIndex = 0;
@@ -53,11 +54,20 @@
     // 4. Listen for the space bar keypress to trigger changeBackground
     window.addEventListener('keydown', function(event) {
         // Check if the pressed key is the Space bar
-        if (event.code === 'Space' || event.key === ' ') {
+        if (event.code === 'space' || event.key === ' ') {
             // Prevent the default behavior (like scrolling down the page)
             event.preventDefault(); 
             // Change the image
             changeBackground();
         }
     });
+
+    // 5. Listen for mobile touch events
+  window.addEventListener('touchend', function(event) {
+    // Prevent default mobile behaviors like accidental zooming
+    event.preventDefault();
+    // Change the image
+    changeBackground();
+  }, { passive: false }); // 'passive: false' allows preventDefault to work properly
+</script>
 </script>
